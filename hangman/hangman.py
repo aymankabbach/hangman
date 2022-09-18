@@ -1,4 +1,3 @@
-from itertools import count
 import random,pandas
 userword=[]
 choosen_word_list=[]
