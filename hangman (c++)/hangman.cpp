@@ -23,12 +23,20 @@ string get_random_country_from_vector(vector <string>& vCountries)
     string random_country = vCountries[random];
     return random_country;
 }
+void determine_the_length_of_usercountry(vector <string>& vUserCountry,string random_country)
+{
+    for (int x=0;x<random_country.size();x++)
+    {
+        vUserCountry.push_back("_");
+    }
+}
 int main()
 {
     vector <string> vCountries;
+    vector <string> vUserCountry;
     Load_Data_From_File_to_Vector(vCountries);
     string random_country=get_random_country_from_vector(vCountries);
-    cout<<random_country<<endl;
+    determine_the_length_of_usercountry(vUserCountry,random_country);
     system("pause");
     return 0;
 }
