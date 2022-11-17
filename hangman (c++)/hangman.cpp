@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <time.h>
+#include <cctype>
 using namespace std;
 void Load_Data_From_File_to_Vector(vector <string>& vCountries)
 {
@@ -30,6 +31,13 @@ void determine_the_length_of_usercountry(vector <string>& vUserCountry,string ra
         vUserCountry.push_back("_");
     }
 }
+char get_user_letter()
+{
+    char letter;
+    cout<<"enter a letter"<<endl;
+    cin>>letter;
+    return letter;
+}
 int main()
 {
     vector <string> vCountries;
@@ -37,6 +45,7 @@ int main()
     Load_Data_From_File_to_Vector(vCountries);
     string random_country=get_random_country_from_vector(vCountries);
     determine_the_length_of_usercountry(vUserCountry,random_country);
+    char letter=tolower(get_user_letter());
     system("pause");
     return 0;
 }
