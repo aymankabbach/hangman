@@ -22,13 +22,14 @@ string get_random_country_from_vector(vector <string>& vCountries)
     srand (time(NULL));
     int random = rand() % vCountries.size();
     string random_country = vCountries[random];
+    random_country[0]=tolower(random_country[0]);
     return random_country;
 }
-void determine_the_length_of_usercountry(vector <string>& vUserCountry,string random_country)
+void determine_the_length_of_usercountry(vector <char>& vUserCountry,string random_country)
 {
     for (int x=0;x<random_country.size();x++)
     {
-        vUserCountry.push_back("_");
+        vUserCountry.push_back('_');
     }
 }
 char get_user_letter()
@@ -41,7 +42,10 @@ char get_user_letter()
 int main()
 {
     vector <string> vCountries;
-    vector <string> vUserCountry;
+    vector <char> vUserCountry;
+    bool winner=false;
+    bool loser=false;
+    int attempts=5;
     Load_Data_From_File_to_Vector(vCountries);
     string random_country=get_random_country_from_vector(vCountries);
     determine_the_length_of_usercountry(vUserCountry,random_country);
